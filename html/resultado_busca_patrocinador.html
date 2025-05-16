@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Patrocinadores - Sistema TCCs</title>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="css/estilo2.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+	
+  <nav>
+	  <div class="logo2">
+      TCCs
+      <span>Centro Paula Souza</span>
+    </div>
+      <div class="menu2">
+      <a href="#">Página Inicial</a>
+      <a href="#">Meu Perfil</a>
+      <a href="#">Mentores</a>
+      <a href="#" class="active">Patrocinadores</a>
+      <a href="#">Sobre o Projeto</a>
+      <div class="profile-icon"><i class="fas fa-user-circle"></i> | <i class="fas fa-chevron-down"></i></div>
+    </div>
+  </nav>
+
+  <main class="main-busca">
+  <div class="painel-lateral">
+    <form class="form-busca">
+      <label for="search"><strong>Pesquisar por:</strong></label>
+      <input type="text" id="search" name="search" placeholder="Walter White">
+      <div class="radio-options">
+        <label><input type="radio" name="filter" checked> Nome</label><br>
+        <label><input type="radio" name="filter"> Área de Especialidade</label>
+      </div>
+      <button type="submit" class="btn-buscar">
+  <i class="fas fa-search"></i>
+</button>
+    </form>
+  </div>
+
+  <div class="painel-resultado">
+    <p class="resultado-titulo">01 resultado encontrado:</p>
+    <div class="mentor-card destaque">
+      <img src="img/walter.png" alt="Foto Walter" class="mentor-image">
+      <div class="mentor-name">Walter White</div>
+      <div class="mentor-description">
+        <strong>Descrição:</strong> Professor experiente com mais de 20 anos de atuação no ensino médio e superior.<br><br>Especialista em reações químicas complexas e apaixonado por ciência.
+          
+          
+        </div>
+        <div class="mentor-info">
+          <strong>Área de Especialidade:</strong> Química Orgânica Avançada<br><br>
+          <strong>Email:</strong> wwhite@chemmentor.com<br>
+          <strong>Telefone:</strong> (11) 91234-5678
+      </div>
+    </div>
+    <p class="sem-mais">... sem mais resultados</p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Início - TCCs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="css/estilo.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="pagina-perfil">
+  <nav>
+    <div class="logo2">
+      TCCs
+      <span>Centro Paula Souza</span>
+    </div>
+    <div class="menu2">
+      <a href="#">Página Inicial</a>
+      <a href="#"  class="active">Meu Perfil</a>
+      <a href="#">Mentores</a>
+      <a href="#">Patrocinadores</a>
+      <a href="#">Sobre o Projeto</a>
+      <a href="#">Sair</a>
+    </div>
+  </nav>
+
+  <main class="container" style="min-width: 90%">
+  <div class="grid-tres-colunas">
+
+    <section class="card-perfil">
+      <h2>Nome do Projeto</h2>
+      <p><i class="fas fa-paperclip"></i> <a href="#">Link do Projeto</a></p>
+      <p style="text-align: left">Postado por <strong>Sara Ferreira</strong> <br>Status: <strong>Concluído</strong></p>
+      <a href="#" style="color: blue;">Editar</a> | 
+      <a href="#" style="color: red;">Excluir</a>
+    </section>
+
+    <section class="card-perfil">
+      <h3 style="text-align: left">Feedbacks:</h3>
+      <div class="feedback-box">
+        <strong>Teste</strong> por Walter White em 2025-04-18 16:50:49
+        <p>Excelente iniciativa!</p>
+      </div>
+      <div class="feedback-box">
+        <strong>Teste 02</strong> por Saul Goodman em 2025-04-18 15:53:43
+        <p>Recomendo adicionar um vídeo explicativo.</p>
+      </div>
+    </section>
+
+    <section class="card-perfil">
+      <h3 style="text-align: left">Publicar Post</h3>
+      <form>
+        <label for="titulo"><strong>Título:</strong></label><br>
+        <input type="text" id="titulo" name="titulo"><br><br>
+
+        <label for="descricao"><strong>Descrição:</strong></label><br>
+        <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea><br><br>
+
+        <label for="link"><strong>Link do Projeto:</strong></label><br>
+        <input type="text" id="link" name="link"><br><br>
+
+        <button type="submit" class="login-button"  style="font-size: 1rem"><strong>Publicar</strong></button>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>
