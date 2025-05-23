@@ -5,7 +5,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
 include_once('conexao.php');
 include_once('protecao.php');
-include('../php/menu.php');
 
 if (!isset($_SESSION['idUsuario'])) {
     echo '<p>Você precisa estar logado para ver os posts.</p>';
