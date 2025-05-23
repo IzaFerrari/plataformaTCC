@@ -255,7 +255,7 @@ body {
 
 .right {
     width: 60%;
-    background: url("../img/centro-paula-souza.jpg") center center/cover no-repeat;
+	background: url("../img/centro-paula-souza.jpg") center center/cover no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -264,7 +264,7 @@ body {
     color: white;
     text-align: center;
     padding: 50px;
-    opacity: 80%;
+    
 }
 
 .right::before {
@@ -633,4 +633,8 @@ body.pagina-erro {
   box-sizing: border-box;
 }
 
+.left {
+    max-height: 100vh;
+    overflow-y: auto;
+}
 	

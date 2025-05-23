@@ -1,82 +1,89 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrocinadores - Sistema TCCs</title>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link href="css/estilo2.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pesquisa de Patrocinadores - Sistema TCCs</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="css/estilo2.css" rel="stylesheet" type="text/css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
-	
-  <nav>
-	  <div class="logo2">
+<nav>
+<div class="logo2">
       TCCs
       <span>Centro Paula Souza</span>
-    </div>
-      <div class="menu2">
-      <a href="#">Página Inicial</a>
-      <a href="#">Meu Perfil</a>
-      <a href="#">Mentores</a>
-      <a href="#" class="active">Patrocinadores</a>
-      <a href="#">Sobre o Projeto</a>
-      <div class="profile-icon">
-        <i class="fas fa-user-circle"></i> |
-        <i class="fas fa-chevron-down"></i>
+</div>
+<div class="menu2">
+<a href="#">Página Inicial</a>
+<a href="#">Meu Perfil</a>
+<a href="#">Mentores</a>
+<a href="#" class="active">Patrocinadores</a>
+<a href="#">Sobre o Projeto</a>
+<div class="profile-icon"><i class="fas fa-user-circle"></i> | <i class="fas fa-chevron-down"></i></div>
+</div>
+</nav>
+<main class="main-busca"><div class="painel-lateral">
+<form class="form-busca">
+<label for="search"><strong>Pesquisar patrocinadores por área de especialidade:</strong></label>
+<input id="search" name="search" placeholder="Digite a área de especialidade" type="text"/>
+<button class="btn-buscar" style="font-size: 2rem" type="submit">
+<i class="fas fa-search"></i>
+</button>
+</form>
+</div>
+<div class="painel-resultado">
+<p class="resultado-titulo">Resultados encontrados:</p>
+</div>
+<div class="mentors-container">
+<div class="mentor-card destaque">
+<img alt="Foto Sabrina" class="mentor-image" src="img/sabrina.png"/>
+<div class="mentor-name">Sabrina</div>
+<div class="mentor-description">
+<strong>Descrição:</strong> Engenheira civil com sólida experiência em planejamento e execução de obras públicas e privadas, atuando há mais de 15 anos no setor.
+        <br/><br/>
+        Especialista em estruturas sustentáveis e entusiasta de tecnologias inovadoras na construção civil.
       </div>
-    </div>
-  </nav>
-
-  <main>
-    <div class="search-button"><i class="fas fa-search"></i></div>
-    <h1>Patrocinadores</h1>
-    <div class="mentors-container">
-      <div class="mentor-card">
-        <img src="img/walter.png" alt="Foto Walter" class="mentor-image">
-        <div class="mentor-name">Walter White</div>
-        <div class="mentor-description">
-          <strong>Descrição:</strong> Professor experiente com mais de 20 anos de atuação no ensino médio e superior.<br><br>Especialista em reações químicas complexas e apaixonado por ciência.
-          
-          
-        </div>
-        <div class="mentor-info">
-         <strong>Área de Especialidade:</strong> Química Orgânica Avançada<br><br>
-          <strong>Email:</strong> wwhite@chemmentor.com<br>
-          <strong>Telefone:</strong> (11) 91234-5678
-        </div>
+<div class="mentor-info">
+<strong>Empresa:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Área de Especialidade:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Email:</strong> sabrina@engsustentavel.com<br/>
+<strong>Telefone:</strong> (21) 99876-4321
       </div>
-
-      <div class="mentor-card">
-        <img src="img/chappell.png" alt="Foto Chappell" class="mentor-image">
-        <div class="mentor-name">Chappell Roan</div>
-        <div class="mentor-description">
-          <strong>Descrição:</strong>  Educadora criativa com mais de 15 anos de dedicação ao ensino e à inspiração de mentes curiosas.
-          <br><br>
-          Movida pela arte de transformar conteúdos complexos em experiências significativas, une ciência e sensibilidade em sala de aula.
-        </div>
-        <div class="mentor-info">
-          <strong>Área de Especialidade:</strong> Metodologia e Sustentabilidade<br><br>
-          <strong>Email:</strong> chappell.roan@ecoorg.org<br>
-          <strong>Telefone:</strong> (21) 93456-7810
-        </div>
+</div>
+<div class="mentor-card destaque">
+<img alt="Foto Sabrina" class="mentor-image" src="img/sabrina.png"/>
+<div class="mentor-name">Sabrina</div>
+<div class="mentor-description">
+<strong>Descrição:</strong> Engenheira civil com sólida experiência em planejamento e execução de obras públicas e privadas, atuando há mais de 15 anos no setor.
+        <br/><br/>
+        Especialista em estruturas sustentáveis e entusiasta de tecnologias inovadoras na construção civil.
       </div>
-
-      <div class="mentor-card">
-        <img src="img/charlotte.png" alt="Foto Charlotte Aitchison" class="mentor-image">
-        <div class="mentor-name">Charlotte Aitchison</div>
-        <div class="mentor-description">
-          <strong>Descrição:</strong> Artista e mentora com mais de uma década de experiência.
-Apaixonada por sonoridades futurista, atua como guia criativa para novos talentos e projetos experimentais.
-          
-        </div>
-        <div class="mentor-info">
-          <strong>Área de Especialidade:</strong> Produção Musical Pop e Performance Artística<br><br>
-          <strong>Email:</strong> charli.xcx@neonstudio.art<br>
-          <strong>Telefone:</strong> (11) 97654-3210
-        </div>
+<div class="mentor-info">
+	<strong>Empresa:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Área de Especialidade:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Email:</strong> sabrina@engsustentavel.com<br/>
+<strong>Telefone:</strong> (21) 99876-4321
       </div>
-    </div>
-  </main>
+</div>
+<div class="mentor-card destaque">
+<img alt="Foto Sabrina" class="mentor-image" src="img/sabrina.png"/>
+<div class="mentor-name">Sabrina</div>
+<div class="mentor-description">
+<strong>Descrição:</strong> Engenheira civil com sólida experiência em planejamento e execução de obras públicas e privadas, atuando há mais de 15 anos no setor.
+        <br/><br/>
+        Especialista em estruturas sustentáveis e entusiasta de tecnologias inovadoras na construção civil.
+      </div>
+<div class="mentor-info">
+<strong>Empresa:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Área de Especialidade:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Email:</strong> sabrina@engsustentavel.com<br/>
+<strong>Telefone:</strong> (21) 99876-4321
+      </div>
+</div>
+	
+</div>
+</main>
 </body>
 </html>

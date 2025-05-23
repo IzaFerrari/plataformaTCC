@@ -18,12 +18,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['idUsuario'] = $user['idUsuario'];
             $_SESSION['tipoUsuario'] = $user['tipoUsuario'];
             
-            echo "Login bem-sucedido!";
+            header("Location: ../html/inicio.php");
+            exit();
         } else {
-            echo "Erro: Senha incorreta.";
+            $erro = "Senha incorreta.";
         }
     } else {
-        echo "Erro: Usuário não encontrado ou inativo.";
+        $erro = "Usuário não encontrado ou inativo.";
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <form method="post" action="">
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br>
+        <label>Senha:</label>
+        <input type="password" name="senha" required>
+        <br>
+        <button type="submit">Entrar</button>
+    </form>
+    
+    <form action="registro.php" method="get">
+        <button type="submit">Registrar</button>
+    </form>
+    
+    <?php if (isset($erro)) { echo "<p style='color: red;'>$erro</p>"; } ?>
+</body>
+</html>

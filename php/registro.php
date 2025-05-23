@@ -47,13 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['tipoUsuario'] = $tipoUsuario_input;
 
                 if ($tipoUsuario_input === "Aluno" || $tipoUsuario_input === "Ex-aluno") {
-                    header("Location: ../html/estudante_cadastro.html");
+                    header("Location: estudante_cadastro.php");
                 } elseif ($tipoUsuario_input === "Mentor") {
-                    header("Location: ../html/mentor_cadastro.html");
+                    header("Location: mentor_cadastro.php");
                 } elseif ($tipoUsuario_input === "Patrocinador") {
-                    header("Location: ../html/patrocinador_cadastro.html");
+                    header("Location: patrocinador_cadastro.php");
                 } else {
-                    header("Location: ../html/login.html");
+                    header("Location: index.php");
                 }
                 exit();
             } else {
@@ -64,3 +64,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+
+    <?php if (!empty($mensagem)): ?>
+        <p style="color: red;"><?php echo htmlspecialchars($mensagem); ?></p>
+    <?php endif; ?>
+
+    <form method="POST" action="">
+        <label for="nome">Nome:</label><br>
+        <input type="text" name="nome" id="nome" required value="<?php echo htmlspecialchars($nome_input); ?>"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email" required value="<?php echo htmlspecialchars($email_input); ?>"><br><br>
+
+        <label for="telefone">Telefone:</label><br>
+        <input type="text" name="telefone" id="telefone" required value="<?php echo htmlspecialchars($telefone_input); ?>"><br><br>
+
+        <label for="tipoUsuario">Tipo de Usuário:</label><br>
+        <select name="tipoUsuario" id="tipoUsuario" required>
+            <option value="">Selecione</option>
+            <option value="Aluno" <?php if ($tipoUsuario_input === "Aluno") echo "selected"; ?>>Aluno</option>
+            <option value="Ex-aluno" <?php if ($tipoUsuario_input === "Ex-aluno") echo "selected"; ?>>Ex-aluno</option>
+            <option value="Mentor" <?php if ($tipoUsuario_input === "Mentor") echo "selected"; ?>>Mentor</option>
+            <option value="Patrocinador" <?php if ($tipoUsuario_input === "Patrocinador") echo "selected"; ?>>Patrocinador</option>
+        </select><br><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" name="senha" id="senha" required><br><br>
+
+        <label for="confirmar_senha">Confirmar Senha:</label><br>
+        <input type="password" name="confirmar_senha" id="confirmar_senha" required><br><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

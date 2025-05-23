@@ -1,82 +1,86 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentores - Sistema TCCs</title>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link href="css/estilo2.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pesquisa de Mentores - Sistema TCCs</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="css/estilo2.css" rel="stylesheet" type="text/css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
-	
-  <nav>
-    <div class="logo2">
+<nav>
+<div class="logo2">
       TCCs
-      <span>CPS</span>
-    </div>
-    <div class="menu2">
-      <a href="#">Página Inicial</a>
-      <a href="#">Meu Perfil</a>
-      <a href="#"  class="active">Mentores</a>
-      <a href="#">Patrocinadores</a>
-      <a href="#">Sobre o Projeto</a>
-      <div class="profile-icon">
-        <i class="fas fa-user-circle"></i> |
-        <i class="fas fa-chevron-down"></i>
+      <span>Centro Paula Souza</span>
+</div>
+<div class="menu2">
+<a href="#">Página Inicial</a>
+<a href="#">Meu Perfil</a>
+<a class="active" href="#">Mentores</a>
+<a href="#">Patrocinadores</a>
+<a href="#">Sobre o Projeto</a>
+<div class="profile-icon"><i class="fas fa-user-circle"></i> | <i class="fas fa-chevron-down"></i></div>
+</div>
+</nav>
+<main class="main-busca"><div class="painel-lateral">
+<form class="form-busca">
+<label for="search"><strong>Pesquisar mentores por área de especialidade:</strong></label>
+<input id="search" name="search" placeholder="Digite a área de especialidade" type="text"/>
+<button class="btn-buscar" style="font-size: 2rem" type="submit">
+<i class="fas fa-search"></i>
+</button>
+</form>
+</div>
+<div class="painel-resultado">
+<p class="resultado-titulo">Resultados encontrados:</p>
+</div>
+<div class="mentors-container">
+<div class="mentor-card destaque">
+<img alt="Foto Sabrina" class="mentor-image" src="img/sabrina.png"/>
+<div class="mentor-name">Sabrina</div>
+<div class="mentor-description">
+<strong>Descrição:</strong> Engenheira civil com sólida experiência em planejamento e execução de obras públicas e privadas, atuando há mais de 15 anos no setor.
+        <br/><br/>
+        Especialista em estruturas sustentáveis e entusiasta de tecnologias inovadoras na construção civil.
       </div>
-    </div>
-  </nav>
-
-  <main>
-    <div class="search-button"><i class="fas fa-search"></i></div>
-    <h1>Mentores</h1>
-    <div class="mentors-container">
-      <div class="mentor-card">
-        <img src="img/sabrina.png" alt="Foto Sabrina" class="mentor-image">
-        <div class="mentor-name">Sabrina</div>
-        <div class="mentor-description">
-          <strong>Descrição:</strong> Engenheira civil com sólida experiência em planejamento e execução de obras públicas e privadas, atuando há mais de 15 anos no setor.
-          <br><br>
-          Especialista em estruturas sustentáveis e entusiasta de tecnologias inovadoras na construção civil.
-        </div>
-        <div class="mentor-info">
-          Área de Especialidade: Engenharia Estrutural Sustentável<br><br>
-          <strong>Email:</strong> sabrina@engsustentavel.com<br>
-          <strong>Telefone:</strong> (21) 99876-4321
-        </div>
+<div class="mentor-info">
+<strong>Área de Especialidade:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Email:</strong> sabrina@engsustentavel.com<br/>
+<strong>Telefone:</strong> (21) 99876-4321
       </div>
-
-      <div class="mentor-card">
-        <img src="img/billie.png" alt="Foto Billie" class="mentor-image">
-        <div class="mentor-name">Billie</div>
-        <div class="mentor-description">
-          <strong>Descrição:</strong> Empresária cultural com mais de 12 anos de atuação no incentivo a projetos educacionais, artísticos e científicos em todo o Brasil.
-          <br><br>
-          Movida por transformação social através do investimento estratégico e do apoio a talentos emergentes.
-        </div>
-        <div class="mentor-info">
-          Área de Especialidade: Patrocínio Cultural e Investimento Social Privado<br><br>
-          <strong>Email:</strong> veronica.lima@institutoverarte.org<br>
-          <strong>Telefone:</strong> (61) 9965-41234
-        </div>
+</div>
+<div class="mentor-card destaque">
+<img alt="Foto Sabrina" class="mentor-image" src="img/sabrina.png"/>
+<div class="mentor-name">Sabrina</div>
+<div class="mentor-description">
+<strong>Descrição:</strong> Engenheira civil com sólida experiência em planejamento e execução de obras públicas e privadas, atuando há mais de 15 anos no setor.
+        <br/><br/>
+        Especialista em estruturas sustentáveis e entusiasta de tecnologias inovadoras na construção civil.
       </div>
-
-      <div class="mentor-card">
-        <img src="img/porter.png" alt="Foto Porter" class="mentor-image">
-        <div class="mentor-name">Porter</div>
-        <div class="mentor-description">
-          <strong>Descrição:</strong> Mentor dedicado com mais de 18 anos de experiência orientando jovens profissionais em suas jornadas de desenvolvimento pessoal e carreira.
-          <br><br>
-          Especialista em liderança estratégica e apaixonado por ajudar pessoas a alcançarem seu potencial máximo.
-        </div>
-        <div class="mentor-info">
-          Área de Especialidade: Mentoria em Liderança e Desenvolvimento Profissional<br><br>
-          <strong>Email:</strong> r.almeida@mentoresdeimpacto.com<br>
-          <strong>Telefone:</strong> (41) 99321-8765
-        </div>
+<div class="mentor-info">
+<strong>Área de Especialidade:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Email:</strong> sabrina@engsustentavel.com<br/>
+<strong>Telefone:</strong> (21) 99876-4321
       </div>
-    </div>
-  </main>
+</div>
+<div class="mentor-card destaque">
+<img alt="Foto Sabrina" class="mentor-image" src="img/sabrina.png"/>
+<div class="mentor-name">Sabrina</div>
+<div class="mentor-description">
+<strong>Descrição:</strong> Engenheira civil com sólida experiência em planejamento e execução de obras públicas e privadas, atuando há mais de 15 anos no setor.
+        <br/><br/>
+        Especialista em estruturas sustentáveis e entusiasta de tecnologias inovadoras na construção civil.
+      </div>
+<div class="mentor-info">
+<strong>Área de Especialidade:</strong> Engenharia Estrutural Sustentável<br/><br/>
+<strong>Email:</strong> sabrina@engsustentavel.com<br/>
+<strong>Telefone:</strong> (21) 99876-4321
+      </div>
+</div>
+	
+</div>
+</main>
 </body>
 </html>

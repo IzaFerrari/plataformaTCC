@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Sistema TCCs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link href="css/estilo.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -16,22 +16,21 @@
             <label for="email">Digite seu e-mail:</label>
             <div class="input-container">
                 <i class="fas fa-envelope"></i>
-                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail">
             </div>
         </div>
         <div class="form-group">
             <label for="senha">E a sua senha:</label>
             <div class="input-container">
                 <i class="fas fa-lock"></i>
-                <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+                <input type="password" id="senha" name="senha" placeholder="Sua senha">
             </div>
         </div>
-        <button class="login-button" type="button" onclick="submitLoginForm()">
-            <i class="fas fa-arrow-right"></i>
-        </button>
+       <button class="login-button">
+            <i class="fas fa-arrow-circle-right"></i>
+       </button>
         <div class="links">
-            <!-- Adicionando link para a página de cadastro -->
-            <p><i class="fas fa-user-plus"></i> <a href="../html/cadastro.html">Não tem uma conta?</a></p>
+            <p><i class="fas fa-user-plus"></i> Não tem uma conta?</p>
             <p><i class="fas fa-unlock-alt"></i> Esqueceu a senha?</p>
         </div>
     </div>
@@ -47,37 +46,5 @@
             TCCs<br><span style="font-size:clamp(0.8rem, 1vw, 1rem);">Centro Paula Souza</span>
         </div>
     </div>
-
-    <!-- Adicionando o Script JavaScript para envio do formulário via AJAX -->
-    <script>
-        function submitLoginForm() {
-            var email = document.getElementById("email").value;
-            var senha = document.getElementById("senha").value;
-
-            var formData = new FormData();
-            formData.append("email", email);
-            formData.append("senha", senha);
-
-            // Criando a requisição AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "../php/index.php", true);  // Modificado para apontar para o PHP na pasta php
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Recebendo a resposta do PHP
-                    var response = xhr.responseText;
-
-                    // Verifica se houve erro no login
-                    if (response.includes("Erro")) {
-                        alert("Erro no login: " + response);
-                    } else {
-                        // Redirecionar para página de sucesso
-                        window.location.href = "../html/inicio.php";
-                    }
-                }
-            };
-            xhr.send(formData);
-        }
-    </script>
 </body>
 </html>
-

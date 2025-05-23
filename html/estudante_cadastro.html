@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Estudante - Sistema TCCs</title>
+    <title>Cadastro - Sistema TCCs</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link href="css/estilo.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+	
     <div class="left">
         <h1>Cadastro</h1>
-        <form action="../php/registro.php" method="POST">
-            <input type="hidden" name="nome" value="">
-            <input type="hidden" name="email" value="">
-            <input type="hidden" name="telefone" value="">
-            <input type="hidden" name="senha" value="">
-            <input type="hidden" name="confirmar_senha" value="">
-            <input type="hidden" name="tipoUsuario" value="Aluno">
-            <div class="form-group">
+        <p>Estudante</p>
+		
+		
+		<div class="form-group">
                 <label for="curso">Curso:</label>
                 <div class="input-container">
                     <i class="fas fa-graduation-cap"></i>
                     <input type="text" id="curso" name="curso" placeholder="Seu curso">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="data">Ano de conclusão:</label>
-                <div class="input-container">
-                    <i class="fas fa-calendar-days fa-lg"></i>
-                    <input type="text" id="data" name="data" placeholder="Digite o ano de conclusão">
-                </div>
+        <div class="form-group">
+            <label for="data">Ano de conclusão:</label>
+            <div class="input-container">
+                <i class="fas fa-calendar-days fa-lg"></i>
+                <input type="data" id="data" name="data" placeholder="Digite o ano de conclusão">
             </div>
-            <button class="login-button">
-                <i class="fas fa-circle-check"></i>
-            </button>
-            <div class="links">
-                <p>Cadastrar</p>
-            </div>
-        </form>
+        </div>
+		
+		
+		
+        
+        <button class="login-button">
+            <i class="fas fa-circle-check"></i>
+        </button>
+        <div class="links">
+            <p>Cadastrar</p>
+        </div>
     </div>
     <div class="right">
         <div class="icons">
@@ -52,5 +52,35 @@
             TCCs<br><span style="font-size:clamp(0.8rem, 1vw, 1rem);">Centro Paula Souza</span>
         </div>
     </div>
+	
+	<script>
+        const selectTrigger = document.getElementById('selectTrigger');
+        const options = document.getElementById('options');
+        const textoSelecionado = document.getElementById('textoSelecionado');
+        const iconeSelecionado = document.getElementById('iconeSelecionado');
+
+        selectTrigger.addEventListener('click', () => {
+            options.style.display = options.style.display === 'block' ? 'none' : 'block';
+        });
+
+        const optionItems = document.querySelectorAll('.option');
+        optionItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const texto = item.textContent.trim();
+                const iconeClass = item.getAttribute('data-icon');
+
+                textoSelecionado.textContent = texto;
+                iconeSelecionado.className = iconeClass;
+                options.style.display = 'none';
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.custom-select')) {
+                options.style.display = 'none';
+            }
+        });
+    </script>
+	
 </body>
 </html>
