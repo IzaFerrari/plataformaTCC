@@ -91,7 +91,6 @@
             echo "<p><strong>Descrição:</strong> " . nl2br(htmlspecialchars($mentor['descricaoPerfil'])) . "</p>";  
             echo "<p><strong>Área de Especialidade:</strong> " . htmlspecialchars($mentor['areaEspecialidade']) . "</p>";  
             echo "<p><strong>Email:</strong> " . htmlspecialchars($mentor['email']) . "<br>";  
-            echo "<strong>Telefone:</strong> " . htmlspecialchars($mentor['telefone']) . "</p>";  
             echo "</div>";  
 
             echo "</div>";  

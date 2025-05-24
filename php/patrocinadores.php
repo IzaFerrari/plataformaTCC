@@ -86,7 +86,6 @@
             echo "<p><strong>Empresa:</strong> " . htmlspecialchars($patro['empresa']) . "</p>";  
             echo "<p><strong>Área de Interesse:</strong> " . htmlspecialchars($patro['areaInteresse']) . "</p>";  
             echo "<p><strong>Email:</strong> " . htmlspecialchars($patro['email']) . "<br>";  
-            echo "<strong>Telefone:</strong> " . htmlspecialchars($patro['telefone']) . "</p>";  
             echo "</div>";  
             echo "</div>";  
         }  

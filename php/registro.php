@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include_once("conexao.php");
 
@@ -94,6 +94,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <i class="fas fa-envelope fa-lg"></i>
                     <input type="email" id="email" name="email" placeholder="Seu e-mail" required value="<?php echo htmlspecialchars($email_input); ?>">
                 </div>
+                <small style="color: gray; font-size: 0.85rem; margin-top: 4px; display: block;">
+                    (Visível para todos os usuários)
+                </small>
             </div>
 
             <div class="form-group">
@@ -152,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <i class="fas fa-circle-check"></i>
             </button>
             <div class="links">
-                <p>Cadastrar</p>
+                <p></p>
             </div>
         </form>
     </div>
