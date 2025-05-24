@@ -92,7 +92,6 @@
             echo "<p><strong>Área de Especialidade:</strong> " . htmlspecialchars($mentor['areaEspecialidade']) . "</p>";  
             echo "<p><strong>Email:</strong> " . htmlspecialchars($mentor['email']) . "<br>";  
             echo "</div>";  
-
             echo "</div>";  
         }  
     } else {  
