@@ -39,12 +39,57 @@ if ($feedback['idUsuario'] != $_SESSION['idUsuario']) {
 }
 ?>
 
-<h2>Editar Feedback</h2>
-<form action="atualizar_feedback.php" method="POST">
-    <input type="hidden" name="idFeedback" value="<?= htmlspecialchars($idFeedback) ?>">
-    <label for="titulo">Título:</label>
-    <input type="text" name="titulo" value="<?= htmlspecialchars($feedback['titulo']) ?>" required><br>
-    <label for="texto">Texto:</label>
-    <textarea name="texto" required><?= htmlspecialchars($feedback['texto']) ?></textarea><br>
-    <input type="submit" value="Salvar Alterações">
-</form>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Perfil - TCCs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="../html/css/estilo.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="pagina-perfil">
+
+<main class="container" style="min-width: 60%">
+  <section class="card-perfil">
+    <h2>Editar Feedback</h2>
+    <form action="atualizar_feedback.php" method="POST">
+      <input type="hidden" name="idFeedback" value="<?= htmlspecialchars($idFeedback) ?>">
+
+      <div class="form-group">
+        <label for="titulo" style="text-align: left">Título do Projeto:</label>
+        <div class="input-container">
+          <i class="fas fa-pencil"></i>
+          <input type="text" id="titulo" name="titulo" value="<?= htmlspecialchars($feedback['titulo']) ?>" placeholder="Digite o título do projeto" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="texto" style="text-align: left">Feedback:</label>
+        <div class="input-container">
+          <textarea id="texto" name="texto" placeholder="Escreva o feedback" required><?= htmlspecialchars($feedback['texto']) ?></textarea>
+        </div>
+      </div>
+
+      <div class="botoes-container">
+        <div class="botao-com-texto">
+          <button type="submit" class="login-button">
+            <i class="fas fa-circle-check"></i>
+          </button>
+          <p>Salvar alterações</p>
+        </div>
+
+        <div class="botao-com-texto">
+          <a href="inicio.php" class="login-button" style="text-decoration: none;">
+            <i class="fas fa-arrow-circle-left"></i>
+          </a>
+          <p>Voltar</p>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>
+
+</body>
+</html>

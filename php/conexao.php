@@ -1,7 +1,7 @@
 <?php
-$host = "localhost"; 
+$host = "localhost:3306"; 
 $usuario = "root"; 
-$senha = ""; 
+$senha = "root"; 
 $banco = "tcc_connect"; 
 
 $conn = new mysqli($host, $usuario, $senha, $banco);
