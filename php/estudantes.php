@@ -31,12 +31,13 @@ include('../php/menu.php');
   
   <div class="mentors-container">
     <?php
-    // Query para buscar estudantes e ex-alunos ativos
     $sql = "SELECT 
+              u.idUsuario,
               u.nome, 
               u.email, 
               u.telefone, 
               u.foto, 
+              e.idEstudante,
               e.curso, 
               e.anoConclusao, 
               e.status 
@@ -67,6 +68,35 @@ include('../php/menu.php');
               <div class="mentor-info">
                 <strong>Email:</strong> <?php echo htmlspecialchars($estudante['email']); ?><br/>
               </div>
+
+              <!-- Toggle TCCs/Projetos -->
+              <div style="margin-top: 1em;">
+                <button 
+                  type="button" 
+                  onclick="toggleToggle(this)" 
+                  style="all: unset; cursor: pointer; color: inherit; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 0.5em;">
+                  <span style="display:inline-block; transition: transform 0.3s ease;" class="toggle-arrow">&#9656;</span> 
+                  Ver tccs/projetos
+                </button>
+                <div class="toggle-content" style="display: none; padding-left: 1em;">
+                  <?php
+                  $idEstudante = (int)$estudante['idEstudante'];
+                  $sqlTCC = "SELECT titulo, link FROM TCC WHERE idAutor = $idEstudante";
+                  $resultTCC = mysqli_query($conn, $sqlTCC);
+                  if ($resultTCC && mysqli_num_rows($resultTCC) > 0) {
+                      while ($tcc = mysqli_fetch_assoc($resultTCC)) {
+                          $titulo = htmlspecialchars($tcc['titulo']);
+                          $link = htmlspecialchars($tcc['link']);
+                          echo '<div style="margin-bottom:0.4em;">';
+                          echo '<a href="'. $link .'" target="_blank" style="color: inherit; text-decoration: underline;">'. $titulo .'</a>';
+                          echo '</div>';
+                      }
+                  } else {
+                      echo '<div>(Nenhum projeto encontrado)</div>';
+                  }
+                  ?>
+                </div>
+              </div>
             </div>
             <?php
         }
@@ -77,5 +107,20 @@ include('../php/menu.php');
     ?>
   </div>
 </main>
+
+<script>
+function toggleToggle(button) {
+  const content = button.nextElementSibling;
+  const arrow = button.querySelector('.toggle-arrow');
+  if (content.style.display === 'block') {
+    content.style.display = 'none';
+    arrow.style.transform = 'rotate(0deg)';
+  } else {
+    content.style.display = 'block';
+    arrow.style.transform = 'rotate(90deg)';
+  }
+}
+</script>
+
 </body>
 </html>
