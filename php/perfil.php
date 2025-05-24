@@ -19,24 +19,13 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $usuario = $result->fetch_assoc();
-    echo "<h1>Meu Perfil</h1>";
+    
+    $foto_path = !empty($usuario['foto']) && file_exists("uploads/" . $usuario['foto']) ? "uploads/" . htmlspecialchars($usuario['foto']) : "img/perfil.jpg";
+    
+    $curso = "";
+    $anoConclusao = "";
+    $status = "";
 
-    // Exibir a foto, caso exista
-    if (!empty($usuario['foto'])) {
-        $foto_path = "uploads/" . htmlspecialchars($usuario['foto']);
-        // Verificar se o arquivo da foto realmente existe
-        if (file_exists($foto_path)) {
-            echo "<p> <img src='" . $foto_path . "' alt='Foto de Perfil' style='max-width: 150px; max-height: 150px; width: auto; height: auto;'></p>";
-        } else {
-            echo "<p><strong>Foto:</strong> <em>Foto não encontrada.</em></p>";
-        }
-    }
-
-    echo "<p><strong>Nome:</strong> " . htmlspecialchars($usuario['nome']) . "</p>";
-    echo "<p><strong>Email:</strong> " . htmlspecialchars($usuario['email']) . "</p>";
-    echo "<p><strong>Tipo de Usuário:</strong> " . htmlspecialchars($usuario['tipoUsuario']) . "</p>";
-
-    // Exibir informações específicas de estudante, mentor ou patrocinador
     if ($usuario['tipoUsuario'] == 'Aluno' || $usuario['tipoUsuario'] == 'Ex-aluno') {
         $sql_estudante = "SELECT * FROM estudante WHERE idUsuario = ?";
         $stmt_estudante = $conn->prepare($sql_estudante);
@@ -46,9 +35,9 @@ if ($result->num_rows > 0) {
 
         if ($result_estudante->num_rows > 0) {
             $estudante = $result_estudante->fetch_assoc();
-            echo "<p><strong>Curso:</strong> " . htmlspecialchars($estudante['curso']) . "</p>";
-            echo "<p><strong>Ano de Conclusão:</strong> " . htmlspecialchars($estudante['anoConclusao']) . "</p>";
-            echo "<p><strong>Status:</strong> " . htmlspecialchars($estudante['status']) . "</p>";
+            $curso = $estudante['curso'];
+            $anoConclusao = $estudante['anoConclusao'];
+            $status = $estudante['status'];
         }
     } elseif ($usuario['tipoUsuario'] == 'Mentor') {
         $sql_mentor = "SELECT * FROM mentor WHERE idUsuario = ?";
@@ -59,8 +48,8 @@ if ($result->num_rows > 0) {
 
         if ($result_mentor->num_rows > 0) {
             $mentor = $result_mentor->fetch_assoc();
-            echo "<p><strong>Área de Especialidade:</strong> " . htmlspecialchars($mentor['areaEspecialidade']) . "</p>";
-            echo "<p><strong>Descrição do Perfil:</strong> " . nl2br(htmlspecialchars($mentor['descricaoPerfil'])) . "</p>";
+            $curso = "Área de Especialidade: " . $mentor['areaEspecialidade'];
+            $anoConclusao = "Descrição: " . $mentor['descricaoPerfil'];
         }
     } elseif ($usuario['tipoUsuario'] == 'Patrocinador') {
         $sql_patrocinador = "SELECT * FROM patrocinador WHERE idUsuario = ?";
@@ -71,14 +60,69 @@ if ($result->num_rows > 0) {
 
         if ($result_patrocinador->num_rows > 0) {
             $patrocinador = $result_patrocinador->fetch_assoc();
-            echo "<p><strong>Empresa:</strong> " . htmlspecialchars($patrocinador['empresa']) . "</p>";
-            echo "<p><strong>Área de Interesse:</strong> " . htmlspecialchars($patrocinador['areaInteresse']) . "</p>";
+            $curso = "Empresa: " . $patrocinador['empresa'];
+            $anoConclusao = "Área de Interesse: " . $patrocinador['areaInteresse'];
         }
     }
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Perfil - TCCs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="../html/css/estilo.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="pagina-perfil">
 
-    echo '<a href="editar_perfil.php" style="margin-right: 10px; color: blue;">✏ Editar Perfil</a>';
-    echo '<a href="excluir_conta.php" style="color: red;" onclick="return confirm(\'Tem certeza que deseja excluir sua conta?\');">🗑 Excluir Conta</a>';
+<main class="container" style="min-width: 60%">
+  <section class="card-perfil">
+    <h2>Meu perfil</h2>
+    <?php if (!empty($usuario['foto']) && file_exists("uploads/" . $usuario['foto'])) : ?>
+    <img src="<?= "uploads/" . htmlspecialchars($usuario['foto']) ?>" alt="<?= htmlspecialchars($usuario['nome']) ?>" class="foto-perfil">
+  <?php endif; ?>
+    <h3><?= htmlspecialchars($usuario['nome']) ?></h3>
+    <p><strong>Email:</strong> <?= htmlspecialchars($usuario['email']) ?></p>
+    <p><strong>Tipo de Usuário:</strong> <?= htmlspecialchars($usuario['tipoUsuario']) ?></p>
+    
+    <?php if (!empty($curso)) : ?>
+      <p><strong><?= $usuario['tipoUsuario'] == 'Aluno' || $usuario['tipoUsuario'] == 'Ex-aluno' ? 'Curso' : '' ?></strong> <?= htmlspecialchars($curso) ?></p>
+    <?php endif; ?>
 
+    <?php if (!empty($anoConclusao)) : ?>
+      <p><strong><?= $usuario['tipoUsuario'] == 'Aluno' || $usuario['tipoUsuario'] == 'Ex-aluno' ? 'Ano de Conclusão' : '' ?></strong> <?= htmlspecialchars($anoConclusao) ?></p>
+    <?php endif; ?>
+
+    <?php if (!empty($status)) : ?>
+      <p><strong>Status:</strong> <?= htmlspecialchars($status) ?></p>
+    <?php endif; ?>
+  </section>
+
+  <div class="botoes-container">
+    <div class="botao-com-texto">
+      <a href="../php/editar_perfil.php" class="login-button">
+        <span class="edit-icon">
+          <i class="fas fa-file-pen" style="font-size: 2rem; padding-top: 13px; padding-left: 7px"></i>
+        </span>
+      </a>
+      <p>Editar Perfil</p>
+    </div>
+
+    <div class="botao-com-texto">
+      <a href="../php/excluir_conta.php" class="login-button" style="color: red">
+        <i class="fas fa-circle-xmark"></i>
+      </a>
+      <p>Excluir conta</p>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
+
+<?php
 } else {
     echo "<p>Usuário não encontrado.</p>";
 }

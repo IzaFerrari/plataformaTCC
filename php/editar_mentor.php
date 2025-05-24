@@ -1,49 +1,96 @@
 <?php
 session_start();
-include_once('conexao.php');
+require_once 'conexao.php';
+include('../php/menu.php');
+
 
 if (!isset($_SESSION['idUsuario'])) {
-    echo "Você precisa estar logado.";
+    echo "<p>Você precisa estar logado para acessar esta página.</p>";
     exit();
 }
 
 $idUsuario = $_SESSION['idUsuario'];
-$msg = "";
+$mensagem = "";
 
-// Atualizar dados se o formulário for enviado
+// Processar envio
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $areaEspecialidade = $_POST['areaEspecialidade'];
-    $descricaoPerfil = $_POST['descricaoPerfil'];
+    $area = $_POST['area'] ?? '';
+    $descricao = $_POST['descricao'] ?? '';
 
-    $sql = "UPDATE mentor SET areaEspecialidade = ?, descricaoPerfil = ? WHERE idUsuario = ?";
+    $sql = "UPDATE Mentor SET areaEspecialidade = ?, descricaoPerfil = ? WHERE idUsuario = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssi", $areaEspecialidade, $descricaoPerfil, $idUsuario);
+    $stmt->bind_param("ssi", $area, $descricao, $idUsuario);
+    $success = $stmt->execute();
 
-    if ($stmt->execute()) {
-        $msg = "Dados de mentor atualizados com sucesso!";
-    } else {
-        $msg = "Erro ao atualizar dados do mentor.";
-    }
+    $mensagem = $success ? "Dados atualizados com sucesso." : "Erro ao atualizar os dados.";
 }
 
 // Buscar dados atuais
-$sql = "SELECT areaEspecialidade, descricaoPerfil FROM mentor WHERE idUsuario = ?";
+$sql = "SELECT areaEspecialidade, descricaoPerfil FROM Mentor WHERE idUsuario = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $idUsuario);
 $stmt->execute();
 $result = $stmt->get_result();
 $mentor = $result->fetch_assoc();
+
+$area = $mentor['areaEspecialidade'] ?? '';
+$descricao = $mentor['descricaoPerfil'] ?? '';
 ?>
 
-<h2>Editar Dados de Mentor</h2>
-<?php if ($msg) echo "<p style='color:green;'>$msg</p>"; ?>
-<form action="editar_mentor.php" method="POST">
-    <label>Área de Especialidade:</label>
-    <input type="text" name="areaEspecialidade" value="<?php echo htmlspecialchars($mentor['areaEspecialidade']); ?>" required><br><br>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Perfil - Mentor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="../html/css/estilo.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="pagina-perfil">
 
-    <label>Descrição do Perfil:</label><br>
-    <textarea name="descricaoPerfil" rows="5" cols="40" required><?php echo htmlspecialchars($mentor['descricaoPerfil']); ?></textarea><br><br>
+<main class="container" style="min-width: 60%">
+  <section class="card-perfil">
+    <h2>Editar Perfil - Mentor</h2>
 
-    <input type="submit" value="Salvar Alterações">
-</form>
-<a href="perfil.php">Voltar para o Perfil</a>
+    <?php if (!empty($mensagem)) : ?>
+      <p style="color: green; font-weight: bold;"><?= htmlspecialchars($mensagem) ?></p>
+    <?php endif; ?>
+
+    <form method="POST" action="editar_mentor.php">
+      <div class="form-group">
+        <label for="area" style="text-align: left">Área de Especialidade:</label>
+        <div class="input-container">
+          <i class="fas fa-user-graduate"></i>
+          <input type="text" id="area" name="area" placeholder="Sua especialidade" value="<?= htmlspecialchars($area) ?>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descricao" style="text-align: left">Descrição do Perfil:</label>
+        <div class="input-container">
+          <textarea id="descricao" name="descricao" placeholder="Digite aqui um resumo sobre o seu perfil"><?= htmlspecialchars($descricao) ?></textarea>
+        </div>
+      </div>
+
+      <div class="botoes-container">
+        <div class="botao-com-texto">
+          <button type="submit" class="login-button">
+            <i class="fas fa-circle-check"></i>
+          </button>
+          <p>Salvar alterações</p>
+        </div>
+
+        <div class="botao-com-texto">
+          <a href="perfil.php" class="login-button">
+            <i class="fas fa-arrow-circle-left"></i>
+          </a>
+          <p>Voltar ao Perfil</p>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>
+
+</body>
+</html>
