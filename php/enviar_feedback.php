@@ -67,7 +67,7 @@ if ($res_check->num_rows > 0) {
     $stmt_in->execute();
 }
 
-header("Location: exibir_posts.php");
+header("Location: inicio.php?msg=Feedback enviado com sucesso");
 exit();
 
 $conn->close();

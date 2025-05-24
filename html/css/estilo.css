@@ -620,6 +620,51 @@ body.pagina-erro {
   font-family: 'Nunito', sans-serif;
 }
 
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+
+.card-projeto {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-projeto form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-projeto form input[type="text"],
+.card-projeto form input[type="url"],
+.card-projeto form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+}
+
+
+.feedback-box {
+    margin-top: 1rem;
+    background-color: #fff;
+    border-left: 4px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+
 .grid-tres-colunas {
   display: flex;
   justify-content: space-between;

@@ -43,5 +43,5 @@ $stmt_del = $conn->prepare($sql_del);
 $stmt_del->bind_param("i", $idFeedback);
 $stmt_del->execute();
 
-header("Location: exibir_posts.php?msg=Feedback excluído com sucesso");
+header("Location: inicio.php?msg=Feedback excluído com sucesso");
 exit();

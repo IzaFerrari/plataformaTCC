@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssi", $titulo, $descricao, $linkProjeto, $idTCC);
 
     if ($stmt->execute()) {
-        header("Location: ../html/inicio.php?msg=Post atualizado com sucesso!");
+        header("Location: ../php/inicio.php?msg=Post atualizado com sucesso!");
     } else {
         echo "Erro ao atualizar post.";
     }

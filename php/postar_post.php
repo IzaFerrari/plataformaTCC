@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("issss", $idAutor, $titulo, $descricao, $linkProjeto, $status);
 
         if ($stmt->execute()) {
-            header("Location: ../html/inicio.php?msg=Post publicado com sucesso!");
+            header("Location: ../php/inicio.php?msg=Post publicado com sucesso!");
         } else {
             echo "Erro ao publicar post.";
         }

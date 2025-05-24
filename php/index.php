@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['idUsuario'] = $user['idUsuario'];
             $_SESSION['tipoUsuario'] = $user['tipoUsuario'];
             
-            header("Location: ../html/inicio.php");
+            header("Location: ../php/inicio.php");
             exit();
         } else {
             $erro = "Senha incorreta.";

@@ -17,7 +17,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <span>Centro Paula Souza</span>
     </div>
      <div class="menu2">
-    <a href="../html/inicio.php" class="<?php if($current_page == 'inicio.php') echo 'active'; ?>">Página Inicial</a>
+    <a href="../php/inicio.php" class="<?php if($current_page == 'inicio.php') echo 'active'; ?>">Página Inicial</a>
     <a href="../php/perfil.php" class="<?php if($current_page == 'perfil.php') echo 'active'; ?>">Meu Perfil</a>
     <a href="../php/estudantes.php" class="<?php if($current_page == 'estudantes.php') echo 'active'; ?>">Estudantes</a>
     <a href="../php/mentores.php" class="<?php if($current_page == 'mentores.php') echo 'active'; ?>">Mentores</a>

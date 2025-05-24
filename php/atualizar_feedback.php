@@ -44,5 +44,5 @@ $stmt_up = $conn->prepare($sql_up);
 $stmt_up->bind_param("ssi", $titulo, $texto, $idFeedback);
 $stmt_up->execute();
 
-header("Location: exibir_posts.php?msg=Feedback atualizado com sucesso");
+header("Location: inicio.php?msg=Feedback atualizado com sucesso");
 exit();

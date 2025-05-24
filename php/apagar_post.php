@@ -38,13 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idTCC'])) {
                 $stmt_delete->bind_param("i", $idTCC);
                 $stmt_delete->execute();
                 
-                header("Location: ../html/inicio.php?status=deleted");
+                header("Location: ../php/inicio.php?status=deleted");
                 exit();
             }
         }
     }
 }
 
-header("Location: ../html/inicio.php?error=unauthorized");
+header("Location: ../php/inicio.php?error=unauthorized");
 exit();
 ?>
