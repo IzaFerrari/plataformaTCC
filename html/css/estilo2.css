@@ -88,6 +88,13 @@
       flex-wrap: wrap;
     }
 
+    .about-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .mentor-card {
   background: #dcdcdc;
   padding: 20px;

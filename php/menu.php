@@ -22,7 +22,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <a href="../php/estudantes.php" class="<?php if($current_page == 'estudantes.php') echo 'active'; ?>">Estudantes</a>
     <a href="../php/mentores.php" class="<?php if($current_page == 'mentores.php') echo 'active'; ?>">Mentores</a>
     <a href="../php/patrocinadores.php" class="<?php if($current_page == 'patrocinadores.php') echo 'active'; ?>">Patrocinadores</a>
-    <a href="../html/sobre.php" class="<?php if($current_page == 'sobre.php') echo 'active'; ?>">Sobre o Projeto</a>
+    <a href="../php/sobre.php" class="<?php if($current_page == 'sobre.php') echo 'active'; ?>">Sobre o Projeto</a>
     <a href="../php/logout.php">Sair</a>
   </div>
   </nav>
