@@ -28,13 +28,10 @@ Abaixo você poderá visualizar vídeos demonstrando cada parte do sistema em fu
 ### Tela de Login/ Página Inicial
 ![Tela de Login e postar](imagensReadMe/loginTelaInicial.gif)
 
-### 🏠 Página Inicial  
-[📽️ *Inserir vídeo aqui*]
+### Editar perfil/ Filtrar estudantes
+![Editar perfil/ Filtrar estudantes](imagensReadMe/editarPerfil.gif)
 
-### 👤 Página de Perfil  
-[📽️ *Inserir vídeo aqui*]
+### Mentores e patrocinadores: Página inicial, feedback e filtro
+![Mentores e patrocinadores: Página inicial, feedback e filtro](imagensReadMe/mentoresPatrocinadores.gif)
 
-### ⚙️ Outras Funcionalidades  
-[📽️ *Inserir vídeo aqui*]
 
----
